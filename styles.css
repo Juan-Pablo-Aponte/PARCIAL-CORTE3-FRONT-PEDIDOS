@@ -45,6 +45,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: auto; /* Para que el contenedor principal en main tenga scroll independiente */
+    max-height: 100%; /* Limita la altura al contenedor padre (main) */
 }
 
 /* Estilo para el aside */
@@ -148,6 +150,7 @@ aside {
     padding: 15px;
     overflow: hidden;
     background-color: var(--notification-bg-color);
+    flex-shrink: 0; /* Evita que los contenedores de notificaciones cambien de tamaño */
 }
 
 .notification-container .notification-badge {
