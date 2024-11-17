@@ -8,19 +8,29 @@
 </head>
 <body>
     <main>
-        <header>
-            <h1>
-                login
-            </h1>
-        </header>
-        <div>
-            <div>
-                Administrador
+        <!-- Contenedor Principal -->
+        <div id="main-container">
+            <div id="titulo">
+                <h1 id="Encabezado">Login</h1>
             </div>
-            <div>
-                empleado
+            <div id="admin" class="opcion">Administrador</div>
+            <div id="empleado" class="opcion">Empleado</div>
+        </div>
+
+        <!-- Contenedor Secundario (Oculto al inicio) -->
+        <div id="user-pass-container" class="hidden">
+            <div id="titulo">
+                <h1 id="Encabezado">Ingrese sus credenciales</h1>
             </div>
+            <form>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password">
+                <button type="submit">Ingresar</button>
+            </form>
         </div>
     </main>
+    <script src="ocultar.js"></script>
 </body>
 </html>
