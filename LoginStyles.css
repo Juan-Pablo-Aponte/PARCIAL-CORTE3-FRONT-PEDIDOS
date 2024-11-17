@@ -1,0 +1,20 @@
+/* Variables globales */
+:root {
+    --background-color: #E5D9B6;
+    --section-background-color: #E6DEC8;
+    --primary-color: #455029;
+    --secondary-color: #1E2130;
+    --highlight-color: #B89A70;
+    --notification-bg-color: #f1f1e8;
+    --eliminated-bg-color: #ebe6d2;
+    --button-bg-color: #8B9770;
+    --button-bg-delete-color: rgb(135, 40, 40);
+    --button-hover-bg-color: #D4A02F;
+    --text-color-white: #ffffff;
+    --text-color: #333;
+    --font-size-large: 1.2rem;
+    --font-size-medium: 1rem;
+    --font-size-small: 0.9rem;
+    --general-font: 'Alegreya', serif;
+    --font-family-alt: "Cinzel", serif;
+}
