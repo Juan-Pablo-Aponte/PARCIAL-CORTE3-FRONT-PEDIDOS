@@ -106,6 +106,7 @@ ul.main-menu{
     width: 100%;
     z-index: 99;
     margin: 0;
+    margin-right: 30px;
     padding: 0;
     justify-content: space-between;
     align-items: center;
@@ -125,7 +126,22 @@ li.menu-item a{
 li.menu-item a:hover{
     color: var(--pasta-c);
 }
-
+.config-button {
+    background-color: transparent; /* Elimina el fondo del botón */
+    color:white;
+    border: none; /* Elimina cualquier borde */
+  }
+.config-button:hover{
+    color: var(--pasta-c);
+    cursor: pointer;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+}
 i.toggle-menu img{
     width: 27px;
     z-index: 99;

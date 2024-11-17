@@ -20,3 +20,6 @@ function toggleContainers() {
     mainContainer.classList.add('hidden'); // Oculta el contenedor principal
     userPassContainer.classList.remove('hidden'); // Muestra el contenedor de usuario y contraseña
 }
+function irAlLogin() {
+    window.location.href = 'login.html';
+}
