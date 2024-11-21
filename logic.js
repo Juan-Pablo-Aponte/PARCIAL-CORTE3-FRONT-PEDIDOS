@@ -152,3 +152,4 @@ function mostrarPedidoEliminado(pedido) {
     containerEliminados.appendChild(eliminado);
     containerEliminados.scrollTop = containerEliminados.scrollHeight;
 }
+
