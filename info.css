@@ -201,6 +201,10 @@ input#check{
         position: fixed;
         background-color: white;
     }
+    .config-button{
+        cursor: pointer;
+        color:black;
+    }
     label.checkbtn{
         position: fixed;
         right: 3%;

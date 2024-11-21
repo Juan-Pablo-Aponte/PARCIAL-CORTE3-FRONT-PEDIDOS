@@ -1,9 +1,6 @@
 // Diferentes pedidos de ejemplo
 const pedidosEjemplo = [
     {
-        nombre: "Carlos Martínez",
-        telefono: "3156784321",
-        direccion: "Calle 45 #23-56",
         platos: [
             { nombre: "Pizza Margarita", cantidad: "1", precio: "35000.00" },
             { nombre: "Coca Cola", cantidad: "2", precio: "5000.00" },
@@ -18,9 +15,6 @@ const pedidosEjemplo = [
         total: "57000.00"
     },
     {
-        nombre: "Laura Gómez",
-        telefono: "3149876543",
-        direccion: "Carrera 12 #34-56",
         platos: [
             { nombre: "Hamburguesa Clásica", cantidad: "1", precio: "28000.00" },
             { nombre: "Papas Fritas", cantidad: "1", precio: "8000.00" },
@@ -29,9 +23,6 @@ const pedidosEjemplo = [
         total: "42000.00"
     },
     {
-        nombre: "Andrés Pérez",
-        telefono: "3124567890",
-        direccion: "Avenida Siempre Viva 742",
         platos: [
             { nombre: "Sushi Roll", cantidad: "2", precio: "45000.00" },
             { nombre: "Té Verde", cantidad: "1", precio: "7000.00" }
@@ -39,9 +30,6 @@ const pedidosEjemplo = [
         total: "97000.00"
     },
     {
-        nombre: "María Rodríguez",
-        telefono: "3101234567",
-        direccion: "Calle Falsa 123",
         platos: [
             { nombre: "Pasta Carbonara", cantidad: "1", precio: "38000.00" },
             { nombre: "Pan de Ajo", cantidad: "1", precio: "5000.00" },
@@ -58,7 +46,7 @@ function crearPedidoTemporal() {
 }
 
 function createNotificationPedido(pedido) {
-    const { nombre, telefono, direccion, platos, total } = pedido;
+    const {platos, total } = pedido;
 
     const notification = document.createElement('div');
     notification.classList.add('notification-container');
@@ -87,30 +75,13 @@ function createNotificationPedido(pedido) {
     const buttonsContainer = document.createElement('div');
     buttonsContainer.classList.add('buttons-container');
 
-    const btnPendiente = document.createElement('button');
-    btnPendiente.classList.add('pending');
-    btnPendiente.innerText = 'Pendiente';
-    buttonsContainer.appendChild(btnPendiente);
-
     const btnAtendido = document.createElement('button');
     btnAtendido.classList.add('attended');
     btnAtendido.innerText = 'Atendido';
+    btnAtendido.onclick = () => AtenderPedido(notification, pedido);
     buttonsContainer.appendChild(btnAtendido);
 
-    const btnEliminar = document.createElement('button');
-    btnEliminar.classList.add('delete');
-    btnEliminar.innerText = 'Eliminar';
-    btnEliminar.onclick = () => eliminarPedido(notification, pedido);
-    buttonsContainer.appendChild(btnEliminar);
-
     notification.appendChild(buttonsContainer);
-
-    const clienteInfo = document.createElement('div');
-    clienteInfo.innerHTML = `<strong>Nombre:</strong> ${nombre} <br>
-                             <strong>Dirección:</strong> ${direccion} <br>
-                             <strong>Teléfono:</strong> ${telefono}`;
-    clienteInfo.classList.add('cliente-info');
-    notification.appendChild(clienteInfo);
 
     const mainContainer = document.getElementById('main-container');
     mainContainer.insertBefore(notification, mainContainer.firstChild);
@@ -121,23 +92,20 @@ function createNotificationPedido(pedido) {
     }
 }
 
-function eliminarPedido(notification, pedido) {
+function AtenderPedido(notification, pedido) {
     notification.remove();
-    mostrarPedidoEliminado(pedido);
+    mostrarPedidoAtendido(pedido);
 }
 
-function mostrarPedidoEliminado(pedido) {
-    const { nombre, telefono, direccion, platos } = pedido;
+function mostrarPedidoAtendido(pedido) {
+    const {platos} = pedido;
 
-    const eliminado = document.createElement('div');
-    eliminado.classList.add('deleted-notification');
+    const Atendido = document.createElement('div');
+    Atendido.classList.add('deleted-notification');
 
-    const orderDetails = document.createElement('div');
-    orderDetails.classList.add('order-details');
-    orderDetails.innerHTML = `<h4>${nombre}</h4>
-                              <p><strong>Dirección:</strong> ${direccion}</p>
-                              <p><strong>Teléfono:</strong> ${telefono}</p>`;
-    
+    const orderDetails = document.createElement('div'); // Definir orderDetails aquí
+    orderDetails.classList.add('order-details'); // Añadir clase si es necesario
+
     const listaPlatos = document.createElement('ul');
     platos.forEach(plato => {
         const item = document.createElement('li');
@@ -146,10 +114,12 @@ function mostrarPedidoEliminado(pedido) {
     });
     
     orderDetails.appendChild(listaPlatos);
-    eliminado.appendChild(orderDetails);
+    Atendido.appendChild(orderDetails);
 
-    const containerEliminados = document.querySelector('.eliminated-container');
-    containerEliminados.appendChild(eliminado);
-    containerEliminados.scrollTop = containerEliminados.scrollHeight;
+    const containerAtendidos = document.querySelector('.Atendidos-container');
+    containerAtendidos.appendChild(Atendido);
+    containerAtendidos.scrollTop = containerAtendidos.scrollHeight;
 }
-
+function irAlLogin() {
+    window.location.href = 'login.html';
+}
