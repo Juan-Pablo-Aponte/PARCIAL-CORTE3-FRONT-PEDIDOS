@@ -65,6 +65,14 @@ aside {
     flex-direction: column;
     align-items: center;
 }
+.encabezado{
+    background-color: var(--primary-color);
+}
+#titulo{
+    display: flex;
+    font-family: var(--general-font);
+    color:var(--text-color-white);
+}
 
 /* Imagen de perfil en el aside */
 .img-container {
@@ -101,7 +109,7 @@ aside {
 }
 
 /* Contenedor de pedidos eliminados */
-.eliminated-container {
+.Atendidos-container {
     flex: 1;
     overflow-y: auto;
     background-color: var(--eliminated-bg-color);
@@ -112,7 +120,7 @@ aside {
     box-sizing: border-box;
 }
 
-.eliminated-container .deleted-notification {
+.Atendidos-container .deleted-notification {
     background-color: var(--notification-bg-color);
     padding: 10px;
     border-radius: 8px;
@@ -121,24 +129,24 @@ aside {
     width: 100%;
 }
 
-.eliminated-container .deleted-notification .order-details {
+.Atendidos-container .deleted-notification .order-details {
     font-size: var(--font-size-small);
     text-align: left;
 }
 
-.eliminated-container .deleted-notification .order-details h4 {
+.Atendidos-container .deleted-notification .order-details h4 {
     margin: 0;
     font-size: var(--font-size-medium);
     color: var(--primary-color);
 }
 
-.eliminated-container .deleted-notification .order-details ul {
+.Atendidos-container .deleted-notification .order-details ul {
     list-style-type: none;
     padding: 0;
     margin: 5px 0;
 }
 
-.eliminated-container .deleted-notification .order-details ul li {
+.Atendidos-container .deleted-notification .order-details ul li {
     margin-bottom: 5px;
 }
 
@@ -194,36 +202,55 @@ aside {
     flex: 1;
 }
 
-.pending {
-    background-color: var(--button-bg-color);
-}
-
 .attended {
     background-color: var(--button-hover-bg-color);
 }
-
-.delete {
-    background-color: var(--button-bg-delete-color);
+.logout-container{
+    position: flex;
+    padding: 15px;
+}
+.logout-button{
+    background-color:var(--section-background-color);
+    border: none;
+}
+.logout-button:hover{
+    cursor: pointer;
+    color: red;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
 }
 
 /* Responsive Layout */
 @media (max-width: 768px) {
     body {
-        flex-direction: column;
-        height: auto;
+        display: flex;
+        flex-direction: column; 
+        height: auto; /* Permite que la altura del contenido sea dinámica */
+        overflow: auto; /* Permite el scroll en dispositivos pequeños */
     }
 
     main {
-        width: 100%;
-        margin-right: 0;
-        padding-bottom: 80px;
+        order: 1; /* Asegura que el main aparezca primero */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        margin-right: 0; /* Elimina cualquier margen lateral */
+        padding-bottom: 20px;
+        height: auto; /* Permite que el contenido crezca según su contenido */
+        overflow: auto; /* Activa el scroll si es necesario */
     }
 
     aside {
-        position: static;
-        width: 100%;
+        order: 2; /* Asegura que el aside aparezca después del main */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        margin-top: 10px; /* Espacio entre el aside y el main */
         border-left: none;
-        border-top: 2px solid var(--primary-color);
-        padding-top: 10px;
+        border-top: 2px solid var(--primary-color); /* Añade un borde superior */
+        position: relative; /* Restablece la posición a relativa */
+        padding: 15px 10px;
     }
 }
+
