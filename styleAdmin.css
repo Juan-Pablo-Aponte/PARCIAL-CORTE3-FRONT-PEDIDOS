@@ -215,6 +215,13 @@ main::-webkit-scrollbar-track {
     color: var(--primary-color);
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
 
 /* Media Queries */
 @media screen and (max-width: 768px) {

@@ -1,11 +1,3 @@
-// Datos de prueba para trabajadores
-const testWorkers = [
-    { name: 'Ana López', cargo: 'Diseñadora Gráfica', cedula: '12345678' },
-    { name: 'Carlos Pérez', cargo: 'Gerente de Ventas', cedula: '87654321' },
-    { name: 'María Fernández', cargo: 'Desarrolladora Frontend', cedula: '11223344' },
-    { name: 'Luis Gómez', cargo: 'Analista de Datos', cedula: '34567890' }
-];
-
 // Lista de últimos trabajadores agregados
 let lastAddedWorkers = [];
 
@@ -103,11 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cargarInformacionUsuario();
 
-    // Cargar trabajadores de prueba al hacer clic
-    document.getElementById('load-test-data').addEventListener('click', () => {
-        addWorkersFromArray(testWorkers);
-    });
-
     // Agregar un trabajador individual
     document.getElementById('add-worker').addEventListener('click', () => {
         const name = document.getElementById('name').value.trim();
@@ -132,4 +119,8 @@ function cargarInformacionUsuario() {
             <span>Cargo: Backend Developer</span>
         `;
     }
+}
+
+function irAlLogin() {
+    window.location.href = 'login.html';
 }
