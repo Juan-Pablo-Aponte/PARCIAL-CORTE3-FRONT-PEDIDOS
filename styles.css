@@ -26,13 +26,24 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    display: flex;
+    display: grid; 
+    grid-template-rows: auto 1fr; /* Dos filas: header ajustable y contenido expandible */
+    grid-template-columns: 1fr; /* Una sola columna */
     height: 100vh;
     overflow: hidden;
 }
-
+header{
+    grid-row: 1; /* Coloca el header en la primera fila */
+    grid-column: 1; /* Ocupa toda la columna */
+    display: grid;
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+    padding: 10px;
+}
 /* Layout for Main and Fixed Aside */
 main {
+    grid-row: 2; /* Coloca el main en la segunda fila */
+    grid-column: 1; /* Ocupa toda la columna */
     width: 75%;
     margin-right: 25%;
     padding: 20px;
