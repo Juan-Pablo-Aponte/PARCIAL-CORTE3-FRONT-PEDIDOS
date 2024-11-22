@@ -1,6 +1,5 @@
 const carrito = document.querySelector('.Carrito-compras');
-const apiUrl = 'https://script.google.com/macros/s/AKfycbyylP5ZOTtXP9fEwVXReBYb8DCB5uvNZCEMU9HgJATTCHtniALpPISRN0MEYLhPJlHf/exec';
-
+const apiUrl = 'http://127.0.0.1:8000/api/product';
 // Función para abrir y cerrar el carrito
 function abrirCarrito() {
     const carritoVisible = carrito.classList.contains('visible');
@@ -18,15 +17,6 @@ function abrirCarrito() {
 // Función para agregar productos al carrito
 function agregarProducto(nombre, precio) {
   const contenedorCarrito = document.querySelector('.productos-carrito');
-  const botonAgregar = document.querySelector(`#${nombre.replace(/\s+/g, '-')}`);
-
-  // Añadir la clase de animación
-  botonAgregar.classList.add('fantasia');
-
-  // Remover la clase después de 0.5s para que se pueda volver a aplicar en clics futuros
-  setTimeout(() => {
-    botonAgregar.classList.remove('fantasia');
-  }, 500);
 
   // Buscar si el producto ya existe en el carrito
   let productoExistente = null;
@@ -200,7 +190,7 @@ function cerrarCarrito() {
 }
 
 // Función para cargar productos desde la API
-async function cargarProductos() {
+/* async function cargarProductos() {
   try {
     // Espera a que la API responda y convierte la respuesta a JSON
     const response = await fetch(apiUrl);
@@ -214,7 +204,21 @@ async function cargarProductos() {
   } catch (error) {
     console.error('Error al cargar los productos:', error); // Captura y muestra errores si los hay
   }
-}
+} */
+  async function cargarProductos() {
+    try {
+      // Espera a que el backend responda y convierte la respuesta a JSON
+      const response = await fetch(apiUrl);
+      const productos = await response.json(); // Accede a los datos
+  
+      // Una vez que se tengan los datos, muestra los productos por categoría
+      console.log("Respuesta obtenida");
+      mostrarProductos(productos);
+  
+    } catch (error) {
+      console.error('Error al cargar los productos:', error); // Captura y muestra errores si los hay
+    }
+  }
 
 // Función para mostrar productos desde la API con imágenes
 
@@ -238,27 +242,27 @@ function mostrarProductos(productos) {
       // Estructura HTML del producto con botón correctamente posicionado
       const productoHTML = `
         <div class="producto-container">
-          <h2>${producto.Nombre}
-            <button class="agregar" id="${producto.Nombre.replace(/\s+/g, '-')}" onclick="agregarProducto('${producto.Nombre}', ${producto.Precio}, '${producto.Imagen}')">
+          <h2>${producto.name}
+            <button class="agregar" id="${producto.name.replace(/\s+/g, '-')}" onclick="agregarProducto('${producto.name}', ${producto.price}, '${producto.image}')">
                 <span class="material-symbols-outlined">add_shopping_cart</span>
                 <span class="contador"></span>
             </button>
             </h2>
           <div class="carrito">
-            <h4>${producto.Descripción}</h4>
-            <p class="precio">$${producto.Precio}</p>
+            <h4>${producto.description}</h4>
+            <p class="precio">$${producto.price}</p>
           </div>
         </div>
       `;
 
       // Imágenes de los productos solo se añaden a la galería de la derecha
       const imagenHTML = `
-      <img class="imagen" src="${producto.Imagen}" alt="${producto.Nombre}">
-      <span class="overlay">${producto.Nombre}</span>
+      <img class="imagen" src="${producto.image}" alt="${producto.name}">
+      <span class="overlay">${producto.name}</span>
       `;
 
       // Asignar productos e imágenes según la categoría
-      switch (producto.Categoria) {
+      switch (producto.category) {
           case 'Entrada':
               entradasElement.innerHTML += productoHTML;
               entradasImagenes.innerHTML += imagenHTML;
@@ -280,7 +284,7 @@ function mostrarProductos(productos) {
               coctelesImagenes.innerHTML += imagenHTML;
               break;
           default:
-              console.error('Categoría no reconocida:', producto.Categoria);
+              console.error('Categoría no reconocida:', producto.category);
       }
   });
 }
