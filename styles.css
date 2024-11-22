@@ -36,8 +36,6 @@ header{
     grid-row: 1; /* Coloca el header en la primera fila */
     grid-column: 1; /* Ocupa toda la columna */
     display: grid;
-    background-color: var(--primary-color);
-    color: var(--text-color-white);
     padding: 10px;
 }
 /* Layout for Main and Fixed Aside */
@@ -67,7 +65,9 @@ aside {
     right: 0;
     top: 0;
     bottom: 0;
-    padding: 20px;
+    padding-top: 0;
+    padding-right: 20px;
+    padding-left: 20px;
     background-color: var(--section-background-color);
     box-sizing: border-box;
     border-left: 2px solid var(--primary-color);
@@ -83,18 +83,19 @@ aside {
     display: flex;
     font-family: var(--general-font);
     color:var(--text-color-white);
+    padding-left: 26%;
+    align-items: left;
 }
 
 /* Imagen de perfil en el aside */
 .img-container {
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
     background-color: var(--section-background-color);
 }
 
@@ -115,19 +116,19 @@ aside {
 
 .info-container span {
     display: block;
-    font-size: var(--font-size-medium);
+    font-size: 20px;
     color: var(--text-color);
 }
 
-/* Contenedor de pedidos eliminados */
+/* Contenedor de pedidos atendidos */
 .Atendidos-container {
-    flex: 1;
     overflow-y: auto;
     background-color: var(--eliminated-bg-color);
     padding: 10px;
     border-radius: 10px;
     border: 1px solid var(--primary-color);
     width: 100%;
+    height: 450px;
     box-sizing: border-box;
 }
 
@@ -138,6 +139,7 @@ aside {
     margin-bottom: 10px;
     border: 1px solid var(--primary-color);
     width: 100%;
+    box-sizing: border-box;
 }
 
 .Atendidos-container .deleted-notification .order-details {
@@ -160,7 +162,10 @@ aside {
 .Atendidos-container .deleted-notification .order-details ul li {
     margin-bottom: 5px;
 }
-
+#subtitulo{
+    font-size: 20px;
+    font-family: var(--font-family-alt);
+}
 /* Notification Container Styles */
 .notification-container {
     position: relative;
@@ -217,12 +222,12 @@ aside {
     background-color: var(--button-hover-bg-color);
 }
 .logout-container{
-    position: flex;
     padding: 15px;
 }
 .logout-button{
     background-color:var(--section-background-color);
     border: none;
+    width: 100px;
 }
 .logout-button:hover{
     cursor: pointer;
