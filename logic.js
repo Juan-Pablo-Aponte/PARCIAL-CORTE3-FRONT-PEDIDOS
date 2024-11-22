@@ -98,7 +98,7 @@ function AtenderPedido(notification, pedido) {
 }
 
 function mostrarPedidoAtendido(pedido) {
-    const {platos} = pedido;
+    const {platos,total} = pedido;
 
     const Atendido = document.createElement('div');
     Atendido.classList.add('deleted-notification');
