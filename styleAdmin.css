@@ -8,10 +8,10 @@
     --text-color: #333;
     --button-bg-color: #8B9770;
     --button-bg-delete-color: rgb(135, 40, 40);
-    --button-hover-bg-color: rgb(170, 50, 50); /* Nueva variable */
-    --font-size-large: 1.2rem;
-    --font-size-medium: 1rem;
-    --font-size-small: 0.9rem;
+    --button-hover-bg-color: rgb(170, 50, 50);
+    --font-size-large: 1.8rem; /* Aumentar tamaño */
+    --font-size-medium: 1.2rem; /* Aumentar tamaño */
+    --font-size-small: 1rem;
     --general-font: 'Alegreya', serif;
 }
 
@@ -34,61 +34,40 @@ aside {
     left: 0;
     top: 0;
     bottom: 0;
-    padding: 20px;
+    padding: 10px;
     background-color: var(--section-background-color);
     box-sizing: border-box;
     border-right: 2px solid var(--primary-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-/* Imagen de perfil */
-.img-container {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--background-color);
-}
-
-.img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    gap: 15px;
 }
 
 /* Información del usuario */
 .info-container {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.info-container span {
+    flex-shrink: 0; /* Evitar compresión */
+    margin-top: 20px; /* Desplazar hacia abajo */
     font-size: var(--font-size-large);
     color: var(--primary-color);
+    line-height: 1.5; /* Mejorar espaciado entre líneas */
 }
 
 /* Formulario */
 .load-container {
-    margin-top: auto;
-    width: 100%;
+    flex-grow: 1; /* Ocupa el resto del espacio */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    justify-content: flex-start;
+    padding-top: 20px; /* Inicia más arriba */
+    width: 100%;
 }
 
 .load-container input {
     width: 90%;
-    padding: 8px;
+    padding: 10px;
     font-size: var(--font-size-medium);
     border: 1px solid var(--primary-color);
     border-radius: 5px;
@@ -97,7 +76,7 @@ aside {
 .load-container button {
     background-color: var(--button-bg-color);
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: var(--font-size-medium);
     border: none;
     border-radius: 5px;
@@ -108,9 +87,9 @@ aside {
     background-color: var(--button-hover-bg-color);
 }
 
-/* Main como matriz */
+/* Main */
 main {
-    width: 75%; /* Ajustar al ancho restante */
+    width: 75%;
     margin-left: 25%;
     padding: 20px;
     box-sizing: border-box;
@@ -118,44 +97,36 @@ main {
     grid-template-columns: repeat(3, 1fr); /* 3 columnas */
     gap: 20px; /* Espaciado entre tarjetas */
     overflow-y: auto;
-    height: 100vh; /* Hacer scroll si excede la altura */
+    height: 100vh;
 }
 
-/* Trabajador en formato cuadrado */
+/* Trabajador */
 .worker-card {
-    width: 100%; /* Ocupa todo el espacio de la columna */
-    aspect-ratio: 1 / 1; /* Forma cuadrada */
+    width: 90%; /* Reducir ancho */
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--primary-color);
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: var(--section-background-color);
-    padding: 10px;
-    box-sizing: border-box;
     text-align: center;
-}
-
-.worker-card img {
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-
-.worker-info-container {
     font-size: var(--font-size-medium);
+    line-height: 1.4; /* Mejorar legibilidad */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Suavizar borde */
 }
 
-/* Botón de eliminar */
+.worker-card p {
+    margin: 5px 0;
+    font-size: var(--font-size-medium); /* Ampliar texto */
+}
+
 .delete-worker {
     background-color: var(--button-bg-delete-color);
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
 }
